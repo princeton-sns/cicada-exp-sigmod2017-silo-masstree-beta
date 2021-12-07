@@ -547,8 +547,8 @@ typename String_base<T>::const_iterator String_base<T>::encode_json_partial(E& e
             enc << (char) c;
             break;
         default: { // c is a control character, 0x2028, or 0x2029
-            char* x = enc.reserve(5);
-            snprintf(x, 5, "u%04X", c);
+            char* x = enc.reserve(6);
+            snprintf(x, 6, "u%04X", c);
             if (c > 255)        // skip rest of encoding of U+202[89]
                 s += 2;
             break;
